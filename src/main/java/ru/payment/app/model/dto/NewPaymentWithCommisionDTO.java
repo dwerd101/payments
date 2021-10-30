@@ -13,5 +13,5 @@ import java.math.BigDecimal;
 @NoArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class NewPaymentWithCommisionDTO {
-    BigDecimal summOfPayment;
+    BigDecimal amountOfPayment;
 }

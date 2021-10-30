@@ -2,23 +2,16 @@ package ru.payment.app.service;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
-import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.test.context.ContextConfiguration;
-import ru.payment.app.Application;
-import ru.payment.app.mapper.PaymentMapper;
 import ru.payment.app.model.Payment;
 import ru.payment.app.model.User;
 import ru.payment.app.model.dto.NewPaymentWithCommisionDTO;
 import ru.payment.app.model.dto.PaymentDTO;
-import ru.payment.app.repository.PaymentRepository;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.when;
+
 @SpringBootTest
 public class PaymentServiceTests {
     @Autowired
@@ -41,7 +34,7 @@ public class PaymentServiceTests {
                 .comment("")
                 .paymentDate(LocalDateTime.now())
                 .build());
-      assertEquals(new BigDecimal("0"), paymentWithCommisionDTO.getSummOfPayment());
+      assertEquals(new BigDecimal("0"), paymentWithCommisionDTO.getAmountOfPayment());
     }
     @Test
     void ifPriceEqualsZero_returnPriceOneOk1() {
@@ -58,7 +51,7 @@ public class PaymentServiceTests {
                 .comment("")
                 .paymentDate(LocalDateTime.now())
                 .build());
-        assertEquals(new BigDecimal("0"), paymentWithCommisionDTO.getSummOfPayment());
+        assertEquals(new BigDecimal("0"), paymentWithCommisionDTO.getAmountOfPayment());
     }
     @Test
     void ifPriceEquals150_returnPrice152Ok() {
@@ -75,7 +68,7 @@ public class PaymentServiceTests {
                 .comment("")
                 .paymentDate(LocalDateTime.now())
                 .build());
-        assertEquals(new BigDecimal("152"), paymentWithCommisionDTO.getSummOfPayment());
+        assertEquals(new BigDecimal("152"), paymentWithCommisionDTO.getAmountOfPayment());
     }
     @Test
     void ifPriceEquals10000_returnPrice10310Ok() {
@@ -92,7 +85,7 @@ public class PaymentServiceTests {
                 .comment("")
                 .paymentDate(LocalDateTime.now())
                 .build());
-        assertEquals(new BigDecimal("10310"), paymentWithCommisionDTO.getSummOfPayment());
+        assertEquals(new BigDecimal("10310"), paymentWithCommisionDTO.getAmountOfPayment());
     }
     @Test
     void ifPriceEquals10000_returnPrice10310O1k() {
@@ -109,6 +102,6 @@ public class PaymentServiceTests {
                 .comment("")
                 .paymentDate(LocalDateTime.now())
                 .build());
-        assertEquals(new BigDecimal("105264"), paymentWithCommisionDTO.getSummOfPayment());
+        assertEquals(new BigDecimal("105264"), paymentWithCommisionDTO.getAmountOfPayment());
     }
 }
