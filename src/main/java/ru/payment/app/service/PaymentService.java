@@ -23,7 +23,6 @@ public class PaymentService {
     @Transactional
     public NewPaymentWithCommisionDTO calculate(PaymentDTO paymentDTO) {
         Payment payment = paymentMapper.toModel(paymentDTO);
-        System.out.println(payment);
         paymentRepository.save(payment);
         return calculateNewPriceWithCommision(paymentDTO);
     }
