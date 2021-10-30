@@ -15,9 +15,9 @@ public class Payment {
     @Column(name = "id")
     private Long id;
     @Column(name = "amount_of_payment")
-    BigDecimal amountOfPayment;
+    private BigDecimal amountOfPayment;
     @Column(name = "payment_date")
-    LocalDateTime paymentDate;
+    private LocalDateTime paymentDate;
     @Column(name = "comment")
     private String comment;
     @JsonIgnore

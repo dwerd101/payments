@@ -15,13 +15,12 @@ import java.math.RoundingMode;
 
 @RequiredArgsConstructor
 @Service
-
 public class PaymentService {
     private final PaymentRepository paymentRepository;
     private final PaymentMapper paymentMapper;
 
     @Transactional
-    public NewPaymentWithCommisionDTO calculate(PaymentDTO paymentDTO) {
+    public NewPaymentWithCommisionDTO savePayment(PaymentDTO paymentDTO) {
         Payment payment = paymentMapper.toModel(paymentDTO);
         paymentRepository.save(payment);
         return calculateNewPriceWithCommision(paymentDTO);

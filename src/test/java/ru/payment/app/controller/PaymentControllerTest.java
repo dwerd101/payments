@@ -8,9 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
@@ -43,7 +41,7 @@ public class PaymentControllerTest {
                 .paymentDate(LocalDateTime.now())
                 .build();
 
-        when(paymentService.calculate(paymentDTO)).thenReturn(new NewPaymentWithCommisionDTO());
+        when(paymentService.savePayment(paymentDTO)).thenReturn(new NewPaymentWithCommisionDTO());
         MvcResult mvcResult = this.mockMvc.perform(MockMvcRequestBuilders.post(url)
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(mapToJson(paymentDTO)))
@@ -64,7 +62,7 @@ public class PaymentControllerTest {
                 .paymentDate(LocalDateTime.now())
                 .build();
 
-        when(paymentService.calculate(paymentDTO)).thenReturn(new NewPaymentWithCommisionDTO());
+        when(paymentService.savePayment(paymentDTO)).thenReturn(new NewPaymentWithCommisionDTO());
         MvcResult mvcResult = this.mockMvc.perform(MockMvcRequestBuilders.post(url)
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(mapToJson(paymentDTO)))

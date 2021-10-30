@@ -28,7 +28,7 @@ public class PaymentServiceTests {
         payment.setComment("nope");
         user.setPhoneNumber("+79144435671");
         payment.setUserId(user);
-      NewPaymentWithCommisionDTO paymentWithCommisionDTO = paymentService.calculate(PaymentDTO.builder()
+      NewPaymentWithCommisionDTO paymentWithCommisionDTO = paymentService.savePayment(PaymentDTO.builder()
                 .phoneNumber(payment.getUserId().getPhoneNumber())
                 .amountOfPayment(payment.getAmountOfPayment())
                 .comment("")
@@ -45,7 +45,7 @@ public class PaymentServiceTests {
         payment.setComment("nope");
         user.setPhoneNumber("+79144435671");
         payment.setUserId(user);
-        NewPaymentWithCommisionDTO paymentWithCommisionDTO = paymentService.calculate(PaymentDTO.builder()
+        NewPaymentWithCommisionDTO paymentWithCommisionDTO = paymentService.savePayment(PaymentDTO.builder()
                 .phoneNumber(payment.getUserId().getPhoneNumber())
                 .amountOfPayment(payment.getAmountOfPayment())
                 .comment("")
@@ -62,7 +62,7 @@ public class PaymentServiceTests {
         payment.setComment("nope");
         user.setPhoneNumber("+79144435671");
         payment.setUserId(user);
-        NewPaymentWithCommisionDTO paymentWithCommisionDTO = paymentService.calculate(PaymentDTO.builder()
+        NewPaymentWithCommisionDTO paymentWithCommisionDTO = paymentService.savePayment(PaymentDTO.builder()
                 .phoneNumber(payment.getUserId().getPhoneNumber())
                 .amountOfPayment(payment.getAmountOfPayment())
                 .comment("")
@@ -79,7 +79,7 @@ public class PaymentServiceTests {
         payment.setComment("nope");
         user.setPhoneNumber("+79144435671");
         payment.setUserId(user);
-        NewPaymentWithCommisionDTO paymentWithCommisionDTO = paymentService.calculate(PaymentDTO.builder()
+        NewPaymentWithCommisionDTO paymentWithCommisionDTO = paymentService.savePayment(PaymentDTO.builder()
                 .phoneNumber(payment.getUserId().getPhoneNumber())
                 .amountOfPayment(payment.getAmountOfPayment())
                 .comment("")
@@ -96,7 +96,7 @@ public class PaymentServiceTests {
         payment.setComment("nope");
         user.setPhoneNumber("+79144435671");
         payment.setUserId(user);
-        NewPaymentWithCommisionDTO paymentWithCommisionDTO = paymentService.calculate(PaymentDTO.builder()
+        NewPaymentWithCommisionDTO paymentWithCommisionDTO = paymentService.savePayment(PaymentDTO.builder()
                 .phoneNumber(payment.getUserId().getPhoneNumber())
                 .amountOfPayment(payment.getAmountOfPayment())
                 .comment("")
